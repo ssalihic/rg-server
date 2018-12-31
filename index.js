@@ -58,7 +58,8 @@ app.get('/dajJsonIgre', (req, res) => {
         res.writeHead(200, {
             'Content-Type': 'application/json'
         });
-        res.end(JSON.stringify(nizObjekata));
+        let objekat = { "duzina" : spisakLjudi.length, "nizObjekata" : nizObjekata  };
+        res.end(JSON.stringify(objekat));
     });
 });
 
