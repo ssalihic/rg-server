@@ -5,9 +5,9 @@ korisnik,nasaoStvar.vrijeme - soba1, nasaoStvar.vrijeme - soba2, nasaoStvar.vrij
 Ademovic.Sakib,0.00:00,0.00:00,0.00:00,0.00:00
 
 Svako dira svoju kolonu:
-soba1 - Solja
-soba2 - Dzenana
-soba3 - Ajla
-soba4 - Amir
+- soba1 - Solja
+- soba2 - Dzenana
+- soba3 - Ajla
+- soba4 - Amir
 
 ### mozete pisati dodatne API call requestove, samo mi javite da dodam
