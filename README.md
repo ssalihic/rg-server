@@ -10,4 +10,6 @@ Svako dira svoju kolonu:
 - soba3 - Ajla
 - soba4 - Amir
 
+#### Kucate npm install, pa npm start ili node index.js
+
 ### mozete pisati dodatne API call requestove, samo mi javite da dodam
