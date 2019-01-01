@@ -1,4 +1,5 @@
 # rg-server
+## Kucate npm install, pa npm start ili node index.js
 
 Primjer koristenja:
 - korisnik,nasaoStvar.vrijeme - soba1, nasaoStvar.vrijeme - soba2, nasaoStvar.vrijeme - soba3, nasaoStvar.vrijeme - soba4
@@ -9,7 +10,5 @@ Svako dira svoju kolonu:
 - soba2 - Dzenana
 - soba3 - Ajla
 - soba4 - Amir
-
-#### Kucate npm install, pa npm start ili node index.js
 
 ### mozete pisati dodatne API call requestove, samo mi javite da dodam
