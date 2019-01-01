@@ -97,6 +97,8 @@ app.post('/dajIgraca', (req, res) => {
     });
 });
 
+// dizemo igricu na localhost:9000
+app.use(express.static('./igra'));
 
 app.listen(9000, () => {
     console.log("Slušam 9000 port!");
