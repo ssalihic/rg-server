@@ -2,9 +2,9 @@
 - igrica pravljena na predmetu RG etf.unsa.ba
 
 # Instalacija
-## 1. npm install
-## 2. npm start/node index.js, 
-## 3. http://localhost:9000
+### 1. npm install
+### 2. npm start/node index.js, 
+### 3. http://localhost:9000
 
 # Primjer koristenja (za sobce):
 - korisnik,nasaoStvar.vrijeme - soba1, nasaoStvar.vrijeme - soba2, nasaoStvar.vrijeme - soba3, nasaoStvar.vrijeme - soba4
