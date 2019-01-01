@@ -63,6 +63,8 @@ app.get('/dajJsonIgre', (req, res) => {
     });
 });
 
+// vraca json igraca koji trenutno igra, da mu se vrijeme prikazuje
+// u hodniku uvijek
 app.post('/dajIgraca', (req, res) => {
     let tijelo = req.body;
     let user = tijelo['korisnik'];
