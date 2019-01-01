@@ -6,7 +6,7 @@
 ### 2. npm start/node index.js, 
 ### 3. http://localhost:9000
 
-# Primjer koristenja (za sobce):
+# Primjer koristenja (za sobe):
 - korisnik,nasaoStvar.vrijeme - soba1, nasaoStvar.vrijeme - soba2, nasaoStvar.vrijeme - soba3, nasaoStvar.vrijeme - soba4
 - Ademovic.Sakib,0.00:00,0.00:00,0.00:00,0.00:00
 
