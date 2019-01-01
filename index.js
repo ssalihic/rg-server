@@ -110,7 +110,7 @@ app.get('/dajJsonIgre', (req, res) => {
             'Content-Type': 'application/json'
         });
         let objekat = {
-            "duzina": spisakLjudi.length,
+            "duzina": spisakLjudi.length - 1,
             "nizObjekata": nizObjekata
         };
         res.end(JSON.stringify(objekat));
