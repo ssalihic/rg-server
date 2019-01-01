@@ -63,6 +63,38 @@ app.get('/dajJsonIgre', (req, res) => {
     });
 });
 
+app.post('/dajIgraca', (req, res) => {
+    let tijelo = req.body;
+    let user = tijelo['korisnik'];
+    let objekat = null;
+    fs.readFile(path.join(__dirname + '/igravrijeme.csv'), (err, contents) => {
+        if (err) {
+            res.writeHead(504, {
+                'Content-Type': 'application/json'
+            });
+            throw err;
+        }
+        let spisakLjudi = contents.toString().split("\n");
+        for (let i = 0; i < spisakLjudi.length; ++i) {
+            let parametri = spisakLjudi[i].split(",");
+            if(parametri[0] == user){
+                objekat = {
+                    korisnik: parametri[0],
+                    soba1: parametri[1],
+                    soba2: parametri[2],
+                    soba3: parametri[3],
+                    soba4: parametri[4]
+                };
+                break;
+            }
+        }
+        res.writeHead(200, {
+            'Content-Type': 'application/json'
+        });
+        res.end(JSON.stringify(objekat));
+    });
+});
+
 
 app.listen(9000, () => {
     console.log("Slušam 9000 port!");
