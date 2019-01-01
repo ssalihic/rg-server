@@ -3,8 +3,9 @@
 
 # Instalacija
 ### 1. npm install
-### 2. npm start/node index.js, 
-### 3. http://localhost:9000
+### 2. promijenite za sve CSV fajlove da 'end of line sequence' bude LF, a ne CRLF 
+### 3. npm start/node index.js, 
+### 4. http://localhost:9000
 
 # Primjer koristenja (za sobe):
 - korisnik,nasaoStvar.vrijeme - soba1, nasaoStvar.vrijeme - soba2, nasaoStvar.vrijeme - soba3, nasaoStvar.vrijeme - soba4
