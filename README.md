@@ -4,14 +4,17 @@
 # Instalacija
 ## Kucate npm install, pa npm start ili node index.js, igrica ce biti pokrenuta na localhost:9000
 
-# Primjer koristenja:
-- korisnik,nasaoStvar.vrijeme - soba1, nasaoStvar.vrijeme - soba2, nasaoStvar.vrijeme - soba3, nasaoStvar.vrijeme - soba4
-- Ademovic.Sakib,0.00:00,0.00:00,0.00:00,0.00:00
+# Primjer koristenja - pogledati metodu app.post('/update') !!:
+- genericka metoda za sobe da se updatuje kolona unutar igravrijeme.csv
+- morate poslati unutar body-a sljedece:
+- 'korisnik' - ime korisnika kojem se mijenja vrijeme, uvijek ce biti legalan korisnik
+- 'brojSobe' - brojSobe sto moze biti 1 2 3 4 samo
+- 'novaVrijednost' - ono sto se upisuje na to mjesto, a to je x.AB:CD
 
 Svako dira svoju kolonu:
-- soba1 - Solja
-- soba2 - Dzenana
-- soba3 - Ajla
-- soba4 - Amir
+- soba1 - Solja - brojSobe: 1
+- soba2 - Dzenana - brojSobe: 2
+- soba3 - Ajla - brojSobe: 3
+- soba4 - Amir - brojSobe: 4
 
 ## mozete pisati dodatne API call requestove, samo mi javite da dodam

@@ -10,6 +10,57 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+// genericka metoda za sobe da se updatuje kolona unutar igravrijeme.csv
+// morate poslati unutar body-a sljedece:
+// 'korisnik' - ime korisnika kojem se mijenja vrijeme, uvijek ce biti legalan korisnik
+// 'brojSobe' - brojSobe sto moze biti 1 2 3 4
+// 'novaVrijednost' - ono sto se upisuje na to mjesto
+app.post('/update', (req, res) => {
+    let tijelo = req.body;
+    // nulti element u csv fajlu
+    let korisnik = tijelo['korisnik'];
+    // moze biti 1,2,3,4
+    let brojSobe = tijelo['brojSobe'];
+    // ova vrijednost mora biti x.AB:CD
+    let novoVrijemeIZavrsenost = tijelo['novaVrijednost'];
+    let pamti = false;
+    fs.readFile(path.join(__dirname + '/igravrijeme.csv'), function (err, data) {
+        let sviKorisnici = data.toString().split('\n');
+        for (let i = 0; i < sviKorisnici.length - 1; ++i) {
+            let korisnikTrenutni = sviKorisnici[i].split(",");
+            if (korisnikTrenutni[0] == korisnik) {
+                if (brojSobe == 1)
+                    sviKorisnici[i] = `${korisnik},${novoVrijemeIZavrsenost},${korisnikTrenutni[2]},${korisnikTrenutni[3]},${korisnikTrenutni[4]}`;
+                else if (brojSobe == 2)
+                    sviKorisnici[i] = `${korisnik},${korisnikTrenutni[1]},${novoVrijemeIZavrsenost},${korisnikTrenutni[3]},${korisnikTrenutni[4]}`;
+                else if (brojSobe == 3)
+                    sviKorisnici[i] = `${korisnik},${korisnikTrenutni[1]},${korisnikTrenutni[2]},${novoVrijemeIZavrsenost},${korisnikTrenutni[4]}`;
+                else if (brojSobe == 4)
+                    sviKorisnici[i] = `${korisnik},${korisnikTrenutni[1]},${korisnikTrenutni[2]},${korisnikTrenutni[3]},${novoVrijemeIZavrsenost}`;
+
+                pamti = true;
+                break;
+            }
+        }
+        if (pamti) {
+            // upisivanje u novi fajl
+            fs.writeFileSync(path.join(__dirname + '/igravrijeme.csv'), "", (err) => {
+                if (err) throw err;
+            });
+            for (let i = 0; i < sviKorisnici.length - 1; ++i) {
+                (function odradi(i) {
+                    fs.appendFileSync(path.join(__dirname + '/igravrijeme.csv'), sviKorisnici[i] + "\n", (err) => {
+                        if (err) throw err;
+                    });
+                })(i);
+            }
+            res.send(true);
+        } else res.send(false);
+    });
+});
+
+
+
 // gleda jel username/pw jednak i vraca result valjal
 app.post('/userpw', (req, res) => {
     let tijelo = req.body;
@@ -44,7 +95,7 @@ app.get('/dajJsonIgre', (req, res) => {
         }
         let spisakLjudi = contents.toString().split("\n");
         let nizObjekata = [];
-        for (let i = 0; i < spisakLjudi.length; ++i) {
+        for (let i = 0; i < spisakLjudi.length - 1; ++i) {
             let parametri = spisakLjudi[i].split(",");
             let objekat = {
                 korisnik: parametri[0],
@@ -58,7 +109,10 @@ app.get('/dajJsonIgre', (req, res) => {
         res.writeHead(200, {
             'Content-Type': 'application/json'
         });
-        let objekat = { "duzina" : spisakLjudi.length, "nizObjekata" : nizObjekata  };
+        let objekat = {
+            "duzina": spisakLjudi.length,
+            "nizObjekata": nizObjekata
+        };
         res.end(JSON.stringify(objekat));
     });
 });
@@ -77,9 +131,9 @@ app.post('/dajIgraca', (req, res) => {
             throw err;
         }
         let spisakLjudi = contents.toString().split("\n");
-        for (let i = 0; i < spisakLjudi.length; ++i) {
+        for (let i = 0; i < spisakLjudi.length - 1; ++i) {
             let parametri = spisakLjudi[i].split(",");
-            if(parametri[0] == user){
+            if (parametri[0] == user) {
                 objekat = {
                     korisnik: parametri[0],
                     soba1: parametri[1],
