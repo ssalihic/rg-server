@@ -1,5 +1,5 @@
 # rg-server
-- igrica pravljena na predmetu RG etf.unsa.ba w/ ssalihic1
+- igrica pravljena na predmetu RG etf.unsa.ba
 
 # Instalacija
 ### 1. npm install
