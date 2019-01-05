@@ -1,6 +1,12 @@
 # rg-server
-- igrica pravljena na predmetu RG etf.unsa.ba w/ ssalihic1
+- igrica pravljena na predmetu RG etf.unsa.ba
 
+# game created by
+- Haris Mašović
+- Samra Salihić
+- Haris Šoljić
+- Dženana Šabović
+- Ajla Panjeta
 # Instalacija
 ### 1. npm install
 ### 2. promijenite za sve CSV fajlove da 'end of line sequence' bude LF, a ne CRLF 
