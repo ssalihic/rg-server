@@ -8,8 +8,7 @@
 ### 4. http://localhost:9000
 
 # Primjer koristenja - pogledati metodu app.post('/update') !!:
-- genericka metoda za sobe da se updatuje kolona unutar igravrijeme.csv
-- morate poslati unutar body-a sljedece:
+Genericka metoda za sobe da se updatuje kolona unutar igravrijeme.csv, morate poslati unutar body-a sljedece:
 - 'korisnik' - ime korisnika kojem se mijenja vrijeme, uvijek ce biti legalan korisnik
 - 'brojSobe' - brojSobe sto moze biti 1 2 3 4 samo
 - 'novaVrijednost' - ono sto se upisuje na to mjesto, a to je x.AB:CD

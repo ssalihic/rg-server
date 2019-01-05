@@ -67,6 +67,8 @@ app.post('/userpw', (req, res) => {
     let username = tijelo['username'];
     let password = tijelo['password'];
     let pamti = false;
+    //res.send(true);
+    //return;
     fs.readFile(path.join(__dirname + '/korisnici.csv'), function (err, data) {
         let sviKorisnici = data.toString().split('\n');
         for (let i = 0; i < sviKorisnici.length; ++i) {
